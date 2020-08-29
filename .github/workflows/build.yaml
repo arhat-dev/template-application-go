@@ -66,8 +66,8 @@ jobs:
     - name: Hash
       run: |
         cd build
-        sha256sum template-application-go.darwin* > sha256.darwin.txt
-        sha512sum template-application-go.darwin* > sha512.darwin.txt
+        shasum -a 256 template-application-go.darwin* > sha256.darwin.txt
+        shasum -a 512 template-application-go.darwin* > sha512.darwin.txt
         md5sum template-application-go.darwin* > md5.darwin.txt
         cd -
 
