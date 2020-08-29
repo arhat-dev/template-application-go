@@ -1,0 +1,15 @@
+docs:
+- any:
+  - docs/**
+  - README.md
+
+ci:
+- any:
+  - pkg/.github/**
+  - cicd/gitlab/**
+
+dependency:
+- any:
+  - go.mod
+  - go.sum
+  - vendor/**
