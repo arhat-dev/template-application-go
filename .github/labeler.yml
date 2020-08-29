@@ -5,7 +5,7 @@ docs:
 
 ci:
 - any:
-  - pkg/.github/**
+  - .github/**
   - cicd/gitlab/**
 
 dependency:
