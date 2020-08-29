@@ -90,19 +90,21 @@ template-application-go.linux.all: \
 template-application-go.darwin.amd64:
 	sh scripts/build/build.sh $@
 
-template-application-go.darwin.arm64:
-	sh scripts/build/build.sh $@
+# template-application-go.darwin.arm64:
+# 	sh scripts/build/build.sh $@
 
 template-application-go.darwin.all: \
-	template-application-go.darwin.amd64 \
-	template-application-go.darwin.arm64
+	template-application-go.darwin.amd64
+
+template-application-go.windows.x86:
+	sh scripts/build/build.sh $@
 
 template-application-go.windows.amd64:
 	sh scripts/build/build.sh $@
 
-template-application-go.windows.arm64:
-	sh scripts/build/build.sh $@
+# template-application-go.windows.arm64:
+# 	sh scripts/build/build.sh $@
 
 template-application-go.windows.all: \
-	template-application-go.windows.amd64 \
-	template-application-go.windows.arm64
+	template-application-go.windows.x86 \
+	template-application-go.windows.amd64
