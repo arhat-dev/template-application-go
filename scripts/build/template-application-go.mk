@@ -12,7 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# native
+template-application-go:
+	sh scripts/build/build.sh $@
 
+# linux
 template-application-go.linux.x86:
 	sh scripts/build/build.sh $@
 

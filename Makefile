@@ -13,11 +13,13 @@
 # limitations under the License.
 
 # IMAGE_REPOS is the comma separated list of image registries
-IMAGE_REPOS ?= docker.io/arhatdev,docker.pkg.github.com/arhat-dev/template-application-go
+IMAGE_REPOS ?= docker.io/arhatdev,ghcr.io/arhat-dev
 
 export IMAGE_REPOS
 
 DEFAULT_IMAGE_MANIFEST_TAG ?= latest
+
+include scripts/lint.mk
 
 GOMOD := GOPROXY=direct GOSUMDB=off go mod
 .PHONY: vendor
@@ -31,8 +33,20 @@ include scripts/test/unit.mk
 # binary build
 include scripts/build/template-application-go.mk
 
-# image build
+# image
 include scripts/image/template-application-go.mk
+
+image.build.linux.all: \
+	image.build.template-application-go.linux.all
+
+image.build.windows.all: \
+	image.build.template-application-go.windows.all
+
+image.push.linux.all: \
+	image.push.template-application-go.linux.all
+
+image.push.windows.all: \
+	image.push.template-application-go.windows.all
 
 # packaging
 include scripts/package/template-application-go.mk

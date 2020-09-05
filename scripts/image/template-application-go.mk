@@ -13,6 +13,9 @@
 # limitations under the License.
 
 # build
+image.build.template-application-go.linux.x86:
+	sh scripts/image/build.sh $@
+
 image.build.template-application-go.linux.amd64:
 	sh scripts/image/build.sh $@
 
@@ -25,11 +28,30 @@ image.build.template-application-go.linux.armv7:
 image.build.template-application-go.linux.arm64:
 	sh scripts/image/build.sh $@
 
-image.build.all: \
+image.build.template-application-go.linux.ppc64le:
+	sh scripts/image/build.sh $@
+
+image.build.template-application-go.linux.s390x:
+	sh scripts/image/build.sh $@
+
+image.build.template-application-go.linux.all: \
 	image.build.template-application-go.linux.amd64 \
-	image.build.template-application-go.linux.armv6 \
+	image.build.template-application-go.linux.arm64 \
 	image.build.template-application-go.linux.armv7 \
-	image.build.template-application-go.linux.arm64
+	image.build.template-application-go.linux.armv6 \
+	image.build.template-application-go.linux.x86 \
+	image.build.template-application-go.linux.s390x \
+	image.build.template-application-go.linux.ppc64le
+
+image.build.template-application-go.windows.amd64:
+	sh scripts/image/build.sh $@
+
+image.build.template-application-go.windows.armv7:
+	sh scripts/image/build.sh $@
+
+image.build.template-application-go.windows.all: \
+	image.build.template-application-go.windows.amd64 \
+	image.build.template-application-go.windows.armv7
 
 # push
 image.push.template-application-go.linux.amd64:
@@ -44,8 +66,27 @@ image.push.template-application-go.linux.armv7:
 image.push.template-application-go.linux.arm64:
 	sh scripts/image/push.sh $@
 
-image.push.all: \
+image.push.template-application-go.linux.ppc64le:
+	sh scripts/image/push.sh $@
+
+image.push.template-application-go.linux.s390x:
+	sh scripts/image/push.sh $@
+
+image.push.template-application-go.linux.all: \
 	image.push.template-application-go.linux.amd64 \
-	image.push.template-application-go.linux.armv6 \
+	image.push.template-application-go.linux.arm64 \
 	image.push.template-application-go.linux.armv7 \
-	image.push.template-application-go.linux.arm64
+	image.push.template-application-go.linux.armv6 \
+	image.push.template-application-go.linux.x86 \
+	image.push.template-application-go.linux.s390x \
+	image.push.template-application-go.linux.ppc64le
+
+image.push.template-application-go.windows.amd64:
+	sh scripts/image/push.sh $@
+
+image.push.template-application-go.windows.armv7:
+	sh scripts/image/push.sh $@
+
+image.push.template-application-go.windows.all: \
+	image.push.template-application-go.windows.amd64 \
+	image.push.template-application-go.windows.armv7

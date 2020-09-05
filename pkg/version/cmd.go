@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,10 +24,12 @@ import (
 )
 
 type versionOptions struct {
-	branch bool
-	commit bool
-	tag    bool
-	arch   bool
+	branch             bool
+	commit             bool
+	tag                bool
+	arch               bool
+	goVersion          bool
+	goCompilerPlatform bool
 }
 
 func NewVersionCmd() *cobra.Command {
@@ -49,6 +51,10 @@ func NewVersionCmd() *cobra.Command {
 				show(Tag())
 			case opt.arch:
 				show(Arch())
+			case opt.goVersion:
+				show(GoVersion())
+			case opt.goCompilerPlatform:
+				show(GoCompilerPlatform())
 			default:
 				show(Version())
 			}
@@ -60,6 +66,8 @@ func NewVersionCmd() *cobra.Command {
 	versionFlags.BoolVar(&opt.commit, "commit", false, "get commit hash")
 	versionFlags.BoolVar(&opt.tag, "tag", false, "get tag name")
 	versionFlags.BoolVar(&opt.arch, "arch", false, "get arch")
+	versionFlags.BoolVar(&opt.goVersion, "go.version", false, "get go runtime/compiler version")
+	versionFlags.BoolVar(&opt.goCompilerPlatform, "go.compilerPlatform", false, "get os/arch pair of the go compiler")
 
 	return versionCmd
 }
