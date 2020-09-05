@@ -229,15 +229,16 @@ jobs:
         asset_path: build/template-application-go.darwin.amd64
         asset_content_type: application/octet-stream
 
-    - name: Upload template-application-go.darwin.arm64
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.darwin.arm64
-        asset_path: build/template-application-go.darwin.arm64
-        asset_content_type: application/octet-stream
+    # TODO: support darwin/arm64 build
+    # - name: Upload template-application-go.darwin.arm64
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_name: template-application-go.darwin.arm64
+    #     asset_path: build/template-application-go.darwin.arm64
+    #     asset_content_type: application/octet-stream
 
     - name: Upload template-application-go.windows.x86
       uses: actions/upload-release-asset@v1
@@ -259,15 +260,16 @@ jobs:
         asset_path: build/template-application-go.windows.amd64.exe
         asset_content_type: application/x-ms-dos-executable
 
-    - name: Upload template-application-go.windows.arm64
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.windows.arm64.exe
-        asset_path: build/template-application-go.windows.arm64.exe
-        asset_content_type: application/x-ms-dos-executable
+    # TODO: support windows/arm
+    # - name: Upload template-application-go.windows.armv7
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_name: template-application-go.windows.armv7.exe
+    #     asset_path: build/template-application-go.windows.armv7.exe
+    #     asset_content_type: application/x-ms-dos-executable
 
     - name: Upload template-application-go.linux.x86
       uses: actions/upload-release-asset@v1
