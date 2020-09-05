@@ -73,14 +73,13 @@ Session.vim
 .history
 # End of https://www.gitignore.io/api/go,vim,emacs,visualstudiocode
 
+.DS_Store
+
 /.idea
 /.vscode
 /private
 
-dive.log
 /test
-.DS_Store
-/.env
 
 coverage*.txt
 *.log

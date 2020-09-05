@@ -41,7 +41,7 @@ if [ -z "${GIT_BRANCH}" ]; then
   fi
 fi
 
-if [ -n "$(git status --porcelain)" ] && [ -z "${VERSION}" ]; then
+if [ -n "$(git status --porcelain 2>/dev/null || true)" ] && [ -z "${VERSION}" ]; then
   # repo not clean, no tag should be used
   GIT_TAG=""
 fi
