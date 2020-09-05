@@ -23,8 +23,15 @@ GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null || true)"
 # VERSION is user specified tag value, will override
 GIT_TAG="${VERSION:-$(git describe --tags 2>/dev/null || true)}"
 if [ -z "${GIT_TAG}" ]; then
-  # fallback to gitlab-ci or github actions env
-  GIT_TAG="${CI_COMMIT_TAG:-${GITHUB_REF#refs/*/}}"
+  # no tag detected, fallback to ci system
+
+  GIT_TAG="${CI_COMMIT_TAG}"
+
+  case "${GITHUB_REF}" in
+  refs/tags/*)
+    GIT_TAG="${GITHUB_REF#refs/tags/}"
+    ;;
+  esac
 fi
 
 if [ -z "${GIT_COMMIT}" ]; then
@@ -33,11 +40,18 @@ if [ -z "${GIT_COMMIT}" ]; then
 fi
 
 if [ -z "${GIT_BRANCH}" ]; then
+  # no branch detected, fallback to ci system
+
   if [ -n "${GIT_TAG}" ]; then
     GIT_BRANCH="HEAD"
   else
-    # fallback to gitlab-ci or github actions env
-    GIT_BRANCH="${CI_COMMIT_BRANCH:-${GITHUB_REF#refs/*/}}"
+    GIT_BRANCH="${CI_COMMIT_BRANCH}"
+
+    case "${GITHUB_REF}" in
+    refs/heads/*)
+      GIT_BRANCH="${GITHUB_REF#refs/heads/}"
+      ;;
+    esac
   fi
 fi
 
