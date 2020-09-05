@@ -54,6 +54,9 @@ image.build.template-application-go.windows.all: \
 	image.build.template-application-go.windows.armv7
 
 # push
+image.push.template-application-go.linux.x86:
+	sh scripts/image/push.sh $@
+
 image.push.template-application-go.linux.amd64:
 	sh scripts/image/push.sh $@
 
