@@ -155,22 +155,23 @@ jobs:
 
           ## Features
 
-          - Add foo support #issue-num
-          - Add bar support #issue-num
+          - Add foo support #issue-ref
+          - Add bar support #issue-ref
 
           ## Bug fixes
 
-          - Fixed foo bug #issue-num
-          - Fixed bar bug #issue-num #pr-num
+          - Fixed foo bug #issue-ref
+          - Fixed bar bug #issue-ref #pr-ref
 
-          ## Break Changes
+          ## Breaking Changes
 
           - Foo ...
           - Bar ...
 
           ## Images
 
-          - multi-arch: `docker.io/arhatdev/template-application-go:${{ github.ref }}`
+          - `docker.io/arhatdev/template-application-go:${{ github.ref }}`
+          - `ghcr.io/arhat-dev/template-application-go:${{ github.ref }}`
 
     #
     # checksums
