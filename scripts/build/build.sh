@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e
+set -ex
 
 . scripts/version.sh
 . scripts/build/common.sh
@@ -164,19 +164,18 @@ GO_LDFLAGS="-s -w \
   -X arhat.dev/template-application-go/pkg/version.commit=${GIT_COMMIT} \
   -X arhat.dev/template-application-go/pkg/version.tag=${GIT_TAG} \
   -X arhat.dev/template-application-go/pkg/version.arch=${ARCH} \
-  -X arhat.dev/template-application-go/pkg/version.goVersion=$(go version | cut -d\  -f3) \
   -X arhat.dev/template-application-go/pkg/version.goCompilerPlatform=$(go version | cut -d\  -f4)"
 
-GOARM=$(_get_goarm "${ARCH}")
+GOARM="$(_get_goarm "${ARCH}")"
 if [ -z "${GOARM}" ]; then
   # this can happen if no ARCH specified
-  GOARM=$(go env GOARM)
+  GOARM="$(go env GOARM)"
 fi
 
-GOMIPS=$(_get_gomips "${ARCH}")
+GOMIPS="$(_get_gomips "${ARCH}")"
 if [ -z "${GOMIPS}" ]; then
   # this can happen if no ARCH specified
-  GOMIPS=$(go env GOMIPS)
+  GOMIPS="$(go env GOMIPS)"
 fi
 
 GOBUILD="GO111MODULE=on GOOS=${GOOS} GOARCH=$(_get_goarch "${ARCH}") \
