@@ -2,11 +2,11 @@
 
 [![CI](https://github.com/arhat-dev/template-application-go/workflows/CI/badge.svg)](https://github.com/arhat-dev/template-application-go/actions?query=workflow%3ACI)
 [![Build](https://github.com/arhat-dev/template-application-go/workflows/Build/badge.svg)](https://github.com/arhat-dev/template-application-go/actions?query=workflow%3ABuild)
-[![GoDoc](https://pkg.go.dev/badge/arhat.dev/template-application-go)](https://pkg.go.dev/arhat.dev/template-application-go)
+[![PkgGoDev](https://pkg.go.dev/badge/arhat.dev/template-application-go)](https://pkg.go.dev/arhat.dev/template-application-go)
 [![GoReportCard](https://goreportcard.com/badge/arhat.dev/template-application-go)](https://goreportcard.com/report/arhat.dev/template-application-go)
 [![codecov](https://codecov.io/gh/arhat-dev/template-application-go/branch/master/graph/badge.svg)](https://codecov.io/gh/arhat-dev/template-application-go)
 
-Template for an application written in Go
+Template repo for applications written in Go
 
 ## Make Targets
 
