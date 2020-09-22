@@ -32,7 +32,7 @@ _build() {
 
 template_application_go() {
   # TODO: set mandatory tags and predefined tags for specific platforms
-  _build "CGO_ENABLED=0 ${GOBUILD} -tags='nokube nocloud ${PREDEFINED_BUILD_TAGS}' ./cmd/template-application-go"
+  _build "${GOBUILD} -tags='nokube nocloud netgo ${PREDEFINED_BUILD_TAGS}' ./cmd/template-application-go"
 }
 
 COMP=$(printf "%s" "$@" | cut -d. -f1)
@@ -43,7 +43,7 @@ CMD=$(printf "%s" "$@" | tr '-' '_' | tr '.'  ' ')
 GOOS="$(printf "%s" "$@" | cut -d. -f2 || true)"
 ARCH="$(printf "%s" "$@" | cut -d. -f3 || true)"
 
-if [ -z "${GOOS}" ] || [ "${GOOS}" = "$(printf "%s" "${COMP}" | tr '-' '_')" ]; then
+if [ -z "${GOOS}" ] || [ "${GOOS}" = "$(printf "%s" "${COMP}")" ]; then
   # fallback to goos and goarch values
   GOOS="$(go env GOHOSTOS)"
   ARCH="$(go env GOHOSTARCH)"
