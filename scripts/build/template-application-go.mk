@@ -88,7 +88,8 @@ template-application-go.linux.all: \
 	template-application-go.linux.mips64lehf \
 	template-application-go.linux.ppc64 \
 	template-application-go.linux.ppc64le \
-	template-application-go.linux.s390x
+	template-application-go.linux.s390x \
+	template-application-go.linux.riscv64
 
 template-application-go.darwin.amd64:
 	sh scripts/build/build.sh $@
