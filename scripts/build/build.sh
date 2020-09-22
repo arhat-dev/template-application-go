@@ -32,7 +32,7 @@ _build() {
 
 template_application_go() {
   # TODO: set mandatory tags and predefined tags for specific platforms
-  _build "${GOBUILD} -tags='nokube nocloud netgo ${PREDEFINED_BUILD_TAGS}' ./cmd/template-application-go"
+  _build "${GOBUILD} -tags='nokube nocloud netgo ${PREDEFINED_BUILD_TAGS} ${TAGS}' ./cmd/template-application-go"
 }
 
 COMP=$(printf "%s" "$@" | cut -d. -f1)
