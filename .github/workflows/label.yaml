@@ -9,7 +9,7 @@ on:
 
 jobs:
   label:
-    if: "!startsWith(github.head_ref, 'refs/heads/deps')"
+    if: contains(github.head_ref, 'deps/') == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v2
