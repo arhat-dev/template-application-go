@@ -4,7 +4,7 @@ name: Deps
 on:
   push:
     branches:
-    - deps/*
+    - deps/**
 
 jobs:
   deps:

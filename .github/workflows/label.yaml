@@ -5,10 +5,11 @@ on:
   pull_request:
     branches:
     - master
-    - '!deps/**'
+    - "!deps/**"
 
 jobs:
   label:
+    if: "!startsWith(github.head_ref, 'refs/heads/deps')"
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v2
