@@ -48,6 +48,9 @@ image.push.linux.all: \
 image.push.windows.all: \
 	image.push.template-application-go.windows.all
 
+# manifest gen
+include scripts/gen/manifest.mk
+
 # packaging
 include scripts/package/template-application-go.mk
 
