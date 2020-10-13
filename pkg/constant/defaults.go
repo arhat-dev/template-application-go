@@ -17,5 +17,5 @@ limitations under the License.
 package constant
 
 const (
-	DefaultTemplateApplicationGoConfigFile = "/etc/template-application-go/config.yaml"
+	DefaultConfigFile = "/etc/template-application-go/config.yaml"
 )

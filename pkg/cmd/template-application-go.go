@@ -26,15 +26,15 @@ import (
 	"arhat.dev/template-application-go/pkg/constant"
 )
 
-func NewTemplateApplicationGoCmd() *cobra.Command {
+func NewRootCmd() *cobra.Command {
 	var (
 		appCtx       context.Context
 		configFile   string
-		config       = new(conf.TemplateApplicationGoConfig)
+		config       = new(conf.Config)
 		cliLogConfig = new(log.Config)
 	)
 
-	templateApplicationGoCmd := &cobra.Command{
+	rootCmd := &cobra.Command{
 		Use:           "template-application-go",
 		SilenceErrors: true,
 		SilenceUsage:  true,
@@ -56,17 +56,17 @@ func NewTemplateApplicationGoCmd() *cobra.Command {
 		},
 	}
 
-	flags := templateApplicationGoCmd.PersistentFlags()
+	flags := rootCmd.PersistentFlags()
 
-	flags.StringVarP(&configFile, "config", "c", constant.DefaultTemplateApplicationGoConfigFile,
-		"path to the templateApplicationGo config file")
-	flags.AddFlagSet(conf.FlagsForTemplateApplicationGo("", &config.TemplateApplicationGo))
+	flags.StringVarP(&configFile, "config", "c", constant.DefaultConfigFile,
+		"path to the config file")
+	flags.AddFlagSet(conf.FlagsForAppConfig("", &config.App))
 
-	return templateApplicationGoCmd
+	return rootCmd
 }
 
-func run(appCtx context.Context, config *conf.TemplateApplicationGoConfig) error {
-	logger := log.Log.WithName("TemplateApplicationGo")
+func run(appCtx context.Context, config *conf.Config) error {
+	logger := log.Log.WithName("app")
 
 	_ = logger
 	return nil

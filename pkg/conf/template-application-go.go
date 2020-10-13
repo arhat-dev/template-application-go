@@ -21,29 +21,20 @@ import (
 	"github.com/spf13/pflag"
 )
 
-// nolint:lll
-type TemplateApplicationGoConfig struct {
-	TemplateApplicationGo TemplateApplicationGoAppConfig `json:"templateApplicationGo" yaml:"templateApplicationGo"`
+type Config struct {
+	App AppConfig `json:"app" yaml:"app"`
 }
 
-type TemplateApplicationGoAppConfig struct {
+type AppConfig struct {
 	Log log.ConfigSet `json:"log" yaml:"log"`
 
 	Foo string `json:"foo" yaml:"foo"`
 }
 
-func FlagsForTemplateApplicationGo(prefix string, config *TemplateApplicationGoAppConfig) *pflag.FlagSet {
+func FlagsForAppConfig(prefix string, config *AppConfig) *pflag.FlagSet {
 	fs := pflag.NewFlagSet("app", pflag.ExitOnError)
 
 	fs.StringVar(&config.Foo, prefix+"foo", "bar", "set value of foo")
 
 	return fs
-}
-
-func (c *TemplateApplicationGoConfig) GetLogConfig() log.ConfigSet {
-	return c.TemplateApplicationGo.Log
-}
-
-func (c *TemplateApplicationGoConfig) SetLogConfig(config log.ConfigSet) {
-	c.TemplateApplicationGo.Log = config
 }
