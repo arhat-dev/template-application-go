@@ -122,7 +122,10 @@ template-application-go.windows.armv7:
 
 template-application-go.windows.all: \
 	template-application-go.windows.x86 \
-	template-application-go.windows.amd64
+	template-application-go.windows.amd64 \
+	template-application-go.windows.armv5 \
+	template-application-go.windows.armv6 \
+	template-application-go.windows.armv7
 
 # # android build requires android sdk
 # template-application-go.android.amd64:
