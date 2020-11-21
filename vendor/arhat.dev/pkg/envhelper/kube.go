@@ -1,4 +1,4 @@
-// +build !nocloud,!nokube
+// +build !noenvhelper_kube
 
 /*
 Copyright 2020 The arhat.dev Authors.
