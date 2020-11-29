@@ -3,10 +3,10 @@ module arhat.dev/template-application-go
 go 1.15
 
 require (
-	arhat.dev/pkg v0.4.4
+	arhat.dev/pkg v0.4.5
 	github.com/spf13/cobra v1.1.1
 	github.com/spf13/pflag v1.0.5
-	gopkg.in/yaml.v2 v2.3.0
+	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776
 )
 
 replace (
@@ -23,7 +23,7 @@ replace (
 	k8s.io/cri-api => github.com/kubernetes/cri-api v0.19.4
 	k8s.io/csi-translation-lib => github.com/kubernetes/csi-translation-lib v0.19.4
 	k8s.io/klog => github.com/kubernetes/klog v1.0.0
-	k8s.io/klog/v2 => github.com/kubernetes/klog/v2 v2.3.0
+	k8s.io/klog/v2 => github.com/kubernetes/klog/v2 v2.4.0
 	k8s.io/kube-aggregator => github.com/kubernetes/kube-aggregator v0.19.4
 	k8s.io/kube-controller-manager => github.com/kubernetes/kube-controller-manager v0.19.4
 	k8s.io/kube-proxy => github.com/kubernetes/kube-proxy v0.19.4
@@ -34,6 +34,6 @@ replace (
 	k8s.io/legacy-cloud-providers => github.com/kubernetes/legacy-cloud-providers v0.19.4
 	k8s.io/metrics => github.com/kubernetes/metrics v0.19.4
 	k8s.io/sample-apiserver => github.com/kubernetes/sample-apiserver v0.19.4
-	k8s.io/utils => github.com/kubernetes/utils v0.0.0-20201104234853-8146046b121e
+	k8s.io/utils => github.com/kubernetes/utils v0.0.0-20201110183641-67b214c5f920
 	vbom.ml/util => github.com/fvbommel/util v0.0.2
 )
