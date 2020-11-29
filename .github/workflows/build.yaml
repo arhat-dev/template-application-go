@@ -49,9 +49,9 @@ jobs:
         CGO_ENABLED=0 make -j$(nproc --all) template-application-go.aix.ppc64 TAGS=''
         CGO_ENABLED=0 make -j$(nproc --all) template-application-go.dragonfly.amd64 TAGS=''
 
-    - name: Package
-      run: |
-        make package.template-application-go.linux.all
+    # - name: Package
+    #   run: |
+    #     make package.template-application-go.linux.all
 
     - name: Hash
       run: |
@@ -830,112 +830,112 @@ jobs:
     # packages
     #
 
-    - name: Upload template-application-go-amd64.deb
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.amd64.deb
-        asset_path: build/template-application-go.amd64.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload template-application-go-x86_64.rpm
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.x86_64.rpm
-        asset_path: build/template-application-go.x86_64.rpm
-        asset_content_type: application/x-rpm
-
-    - name: Upload template-application-go-armel.deb
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.armel.deb
-        asset_path: build/template-application-go.armel.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload template-application-go-armhf.deb
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.armhf.deb
-        asset_path: build/template-application-go.armhf.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload template-application-go-armhfp.rpm
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.armhfp.rpm
-        asset_path: build/template-application-go.armhfp.rpm
-        asset_content_type: application/x-rpm
-
-    - name: Upload template-application-go-arm64.deb
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.arm64.deb
-        asset_path: build/template-application-go.arm64.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload template-application-go-aarch64.rpm
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: template-application-go.aarch64.rpm
-        asset_path: build/template-application-go.aarch64.rpm
-        asset_content_type: application/x-rpm
-
-    # - name: Upload template-application-go-arm64.msi
+    # - name: Upload template-application-go-amd64.deb
     #   uses: actions/upload-release-asset@v1
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #   with:
     #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: template-application-go.arm64.msi
-    #     asset_path: build/template-application-go.arm64.msi
-    #     asset_content_type: application/x-msdownload
+    #     asset_name: template-application-go.amd64.deb
+    #     asset_path: build/template-application-go.amd64.deb
+    #     asset_content_type: application/vnd.debian.binary-package
 
-    # - name: Upload template-application-go-amd64.msi
+    # - name: Upload template-application-go-x86_64.rpm
     #   uses: actions/upload-release-asset@v1
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #   with:
     #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: template-application-go.amd64.msi
-    #     asset_path: build/template-application-go.amd64.msi
-    #     asset_content_type: application/x-msdownload
+    #     asset_name: template-application-go.x86_64.rpm
+    #     asset_path: build/template-application-go.x86_64.rpm
+    #     asset_content_type: application/x-rpm
 
-    # - name: Upload template-application-go-arm64.pkg
+    # - name: Upload template-application-go-armel.deb
     #   uses: actions/upload-release-asset@v1
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #   with:
     #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: template-application-go.arm64.pkg
-    #     asset_path: build/template-application-go.arm64.pkg
-    #     asset_content_type: application/octet-stream
+    #     asset_name: template-application-go.armel.deb
+    #     asset_path: build/template-application-go.armel.deb
+    #     asset_content_type: application/vnd.debian.binary-package
 
-    # - name: Upload template-application-go-amd64.pkg
+    # - name: Upload template-application-go-armhf.deb
     #   uses: actions/upload-release-asset@v1
     #   env:
     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #   with:
     #     upload_url: ${{ steps.create_release.outputs.upload_url }}
-    #     asset_name: template-application-go.amd64.pkg
-    #     asset_path: build/template-application-go.amd64.pkg
-    #     asset_content_type: application/octet-stream
+    #     asset_name: template-application-go.armhf.deb
+    #     asset_path: build/template-application-go.armhf.deb
+    #     asset_content_type: application/vnd.debian.binary-package
+
+    # - name: Upload template-application-go-armhfp.rpm
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_name: template-application-go.armhfp.rpm
+    #     asset_path: build/template-application-go.armhfp.rpm
+    #     asset_content_type: application/x-rpm
+
+    # - name: Upload template-application-go-arm64.deb
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_name: template-application-go.arm64.deb
+    #     asset_path: build/template-application-go.arm64.deb
+    #     asset_content_type: application/vnd.debian.binary-package
+
+    # - name: Upload template-application-go-aarch64.rpm
+    #   uses: actions/upload-release-asset@v1
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #   with:
+    #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    #     asset_name: template-application-go.aarch64.rpm
+    #     asset_path: build/template-application-go.aarch64.rpm
+    #     asset_content_type: application/x-rpm
+
+    # # - name: Upload template-application-go-arm64.msi
+    # #   uses: actions/upload-release-asset@v1
+    # #   env:
+    # #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # #   with:
+    # #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    # #     asset_name: template-application-go.arm64.msi
+    # #     asset_path: build/template-application-go.arm64.msi
+    # #     asset_content_type: application/x-msdownload
+
+    # # - name: Upload template-application-go-amd64.msi
+    # #   uses: actions/upload-release-asset@v1
+    # #   env:
+    # #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # #   with:
+    # #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    # #     asset_name: template-application-go.amd64.msi
+    # #     asset_path: build/template-application-go.amd64.msi
+    # #     asset_content_type: application/x-msdownload
+
+    # # - name: Upload template-application-go-arm64.pkg
+    # #   uses: actions/upload-release-asset@v1
+    # #   env:
+    # #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # #   with:
+    # #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    # #     asset_name: template-application-go.arm64.pkg
+    # #     asset_path: build/template-application-go.arm64.pkg
+    # #     asset_content_type: application/octet-stream
+
+    # # - name: Upload template-application-go-amd64.pkg
+    # #   uses: actions/upload-release-asset@v1
+    # #   env:
+    # #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # #   with:
+    # #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+    # #     asset_name: template-application-go.amd64.pkg
+    # #     asset_path: build/template-application-go.amd64.pkg
+    # #     asset_content_type: application/octet-stream
