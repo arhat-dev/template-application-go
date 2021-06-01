@@ -16,6 +16,7 @@ limitations under the License.
 
 package constant
 
+// nolint:revive
 const (
 	DefaultConfigFile = "/etc/template-application-go/config.yaml"
 )

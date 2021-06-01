@@ -94,9 +94,8 @@ template-application-go.linux.all: \
 template-application-go.darwin.amd64:
 	sh scripts/build/build.sh $@
 
-# # currently darwin/arm64 build will fail due to golang link error
-# template-application-go.darwin.arm64:
-# 	sh scripts/build/build.sh $@
+template-application-go.darwin.arm64:
+	sh scripts/build/build.sh $@
 
 template-application-go.darwin.all: \
 	template-application-go.darwin.amd64
@@ -121,11 +120,11 @@ template-application-go.windows.armv7:
 # 	sh scripts/build/build.sh $@
 
 template-application-go.windows.all: \
-	template-application-go.windows.x86 \
 	template-application-go.windows.amd64 \
+	template-application-go.windows.armv7 \
+	template-application-go.windows.x86 \
 	template-application-go.windows.armv5 \
-	template-application-go.windows.armv6 \
-	template-application-go.windows.armv7
+	template-application-go.windows.armv6
 
 # # android build requires android sdk
 # template-application-go.android.amd64:
@@ -232,15 +231,6 @@ template-application-go.openbsd.all: \
 	template-application-go.openbsd.armv5 \
 	template-application-go.openbsd.armv6
 
-template-application-go.solaris.amd64:
-	sh scripts/build/build.sh $@
-
-template-application-go.aix.ppc64:
-	sh scripts/build/build.sh $@
-
-template-application-go.dragonfly.amd64:
-	sh scripts/build/build.sh $@
-
 template-application-go.plan9.amd64:
 	sh scripts/build/build.sh $@
 
@@ -262,3 +252,12 @@ template-application-go.plan9.all: \
 	template-application-go.plan9.x86 \
 	template-application-go.plan9.armv5 \
 	template-application-go.plan9.armv6
+
+template-application-go.solaris.amd64:
+	sh scripts/build/build.sh $@
+
+template-application-go.aix.ppc64:
+	sh scripts/build/build.sh $@
+
+template-application-go.dragonfly.amd64:
+	sh scripts/build/build.sh $@
